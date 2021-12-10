@@ -5,7 +5,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import io.jsonwebtoken.Claims;
@@ -21,8 +24,16 @@ import io.jsonwebtoken.SignatureAlgorithm;
 */
 @Service
 public class JwtUtil {
-	 public static final String TOKEN_SENHA = "1cc48b2a-f32d-46bd-a3a0-1953f8f7e6fc";
+	
+	
+	
+	 private  final String TOKEN_SENHA;// = "1cc48b2a-f32d-46bd-a3a0-1953f8f7e6fc";
    
+	@Autowired
+	public  JwtUtil (@Value("${chave}") String TOKEN_SENHA) {
+		this.TOKEN_SENHA=TOKEN_SENHA;
+		
+	}
 
     public String extractUsername(String token)     {
         return extractClaim(token, Claims::getSubject);
@@ -46,6 +57,7 @@ public class JwtUtil {
     }
 
     public String generateToken(String username)   {
+    	
         Map<String, Object> claims = new HashMap<>();
         return createToken(claims, username);
     }
