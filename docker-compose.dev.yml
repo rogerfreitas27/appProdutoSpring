@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  appproduto:
+    build:
+     context: .
+     target: development
+    ports:
+      - 8000:8000
+      - 8080:8080
+    environment:
+      - SERVER_PORT=8080
+      - JDBC_DATABASE_URL=jdbc:mysql://vps36047.publiccloud.com.br:3306/appProduto?createDatabaseIfNotExist=true&serverTimezone=UTC
+      - JDBC_DATABASE_USERNAME=produto
+      - JDBC_DATABASE_PASSWORD=120510
+      - TOKEN=1cc48b2a-f32d-46bd-a3a0-1953f8f7e6fc
+ 
+    volumes:
+      - ./:/app                                                                                       # Aqui é  a configuração para depuração
+    command: ./mvnw spring-boot:run -Dspring-boot.run.profiles=dev -Dspring-boot.run.jvmArguments="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:8000"
+
+ 
+  
+
