@@ -72,6 +72,11 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<!-- Inicio depurar docker -->
+				<configuration>
+                <excludeDevtools>false</excludeDevtools>
+               </configuration>
+               <!-- Fim depurar docker -->
 			</plugin>
 		</plugins>
 	</build>

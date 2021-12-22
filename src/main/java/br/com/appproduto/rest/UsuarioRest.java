@@ -223,6 +223,14 @@ public class UsuarioRest {
 	}
 	
 	
+	@GetMapping("/codificar")
+	public void teste() {
+	System.out.println("Testando !!");
+		
+		
+		
+		System.out.println("Teste docker e endpoint");
+	}
 	
 	
 	
