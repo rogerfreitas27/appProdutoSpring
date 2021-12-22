@@ -15,7 +15,9 @@ COPY mvnw pom.xml ./
 # O primeiro parâmetro informa ao Docker quais arquivos você gostaria de copiar para a imagem
 # O segundo parâmetro informa ao Docker onde você deseja que os arquivos sejam copiados
 
-RUN ./mvnw dependency:go-offline
+
+# Adicionei o B
+RUN ./mvnw dependency:go-offline -B
 # Isso funciona exatamente da mesma maneira como se estivéssemos executando mvnw(ou mvn)
 # dependência localmente em nossa máquina, mas desta vez as dependências serão instaladas 
 # na imagem.
@@ -23,6 +25,9 @@ RUN ./mvnw dependency:go-offline
 
 COPY src ./src
 # Este COPY comando pega todos os arquivos localizados no diretório atual e os copia na imagem. 
+
+# Adicionei a linha abaixo
+RUN mvn clean install -T 2C -DskipTests=true
 
 FROM base as development
 CMD ["./mvnw", "spring-boot:run", "-Dspring-boot.run.profiles=dev", "-Dspring-boot.run.jvmArguments='-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:8000'"]
