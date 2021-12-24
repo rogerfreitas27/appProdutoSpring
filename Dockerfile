@@ -31,6 +31,9 @@ COPY src ./src
 # Este COPY comando pega todos os arquivos localizados no diretório atual e os copia na imagem. 
 
 
+FROM base as test
+CMD ["./mvnw", "test"]
+
 
 FROM base as development
 CMD ["./mvnw", "spring-boot:run", "-Dspring-boot.run.profiles=dev", "-Dspring-boot.run.jvmArguments='-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:8000'"]
