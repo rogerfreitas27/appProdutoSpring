@@ -4,7 +4,7 @@
 
 #FROM adoptopenjdk/openjdk11:ubi as base
 # A tag acima indica qual a versão do java irei utilizar
-FROM openjdk:16-alpine3.13
+FROM openjdk:16-alpine3.13 as base
 
 WORKDIR /app
 # Aqui eu defino o diretorio de trabalho da imagem
