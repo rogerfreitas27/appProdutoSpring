@@ -19,7 +19,7 @@ COPY mvnw pom.xml ./
 
 
 
-RUN chmod +x  ./mvnw dependency:go-offline -B
+RUN chmod +x  ./mvnw dependency:go-offline 
 # Isso funciona exatamente da mesma maneira como se estivéssemos executando mvnw(ou mvn)
 # dependência localmente em nossa máquina, mas desta vez as dependências serão instaladas 
 # na imagem.
