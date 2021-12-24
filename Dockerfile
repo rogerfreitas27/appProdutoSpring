@@ -20,7 +20,7 @@ COPY mvnw pom.xml ./
 
 
 
-RUN  ./mvnw -B  dependency:go-offline 
+RUN chmod +x  ./mvnw   dependency:go-offline 
 #RUN chmod +x ./mvnw
 # Isso funciona exatamente da mesma maneira como se estivéssemos executando mvnw(ou mvn)
 # dependência localmente em nossa máquina, mas desta vez as dependências serão instaladas 
@@ -40,7 +40,7 @@ CMD ["./mvnw", "spring-boot:run", "-Dspring-boot.run.profiles=dev", "-Dspring-bo
 
 
 FROM base as build
-RUN ./mvnw -B package
+RUN ./mvnw  package
 
 
 
