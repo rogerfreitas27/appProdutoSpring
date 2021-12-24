@@ -15,7 +15,7 @@ COPY mvnw pom.xml ./
 # O primeiro parâmetro informa ao Docker quais arquivos você gostaria de copiar para a imagem
 # O segundo parâmetro informa ao Docker onde você deseja que os arquivos sejam copiados
 
-RUN ./mvnw dependency:go-offline
+RUN ./mvnw dependency:go-offline 
 # Isso funciona exatamente da mesma maneira como se estivéssemos executando mvnw(ou mvn)
 # dependência localmente em nossa máquina, mas desta vez as dependências serão instaladas 
 # na imagem.

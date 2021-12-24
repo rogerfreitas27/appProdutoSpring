@@ -26,7 +26,7 @@ public class JwtUtil {
 	
 	
 	
-	 private  final String TOKEN_SENHA;// = "1cc48b2a-f32d-46bd-a3a0-1953f8f7e6fc";
+	 private  final String TOKEN_SENHA;
    
 	@Autowired
 	public  JwtUtil (@Value("${chave}") String TOKEN_SENHA) {
