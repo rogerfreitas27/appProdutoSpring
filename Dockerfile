@@ -2,8 +2,9 @@
 # Com a tag acima eu garanto que  o docker usara a sintaxe mais atual
 
 
-FROM adoptopenjdk/openjdk11:ubi as base
+#FROM adoptopenjdk/openjdk11:ubi as base
 # A tag acima indica qual a versão do java irei utilizar
+FROM openjdk:16-alpine3.13
 
 WORKDIR /app
 # Aqui eu defino o diretorio de trabalho da imagem
