@@ -5,7 +5,7 @@
 #FROM adoptopenjdk/openjdk11:ubi as base
 # A tag acima indica qual a versão do java irei utilizar
 FROM openjdk:16-alpine3.13 as base
-
+RUN apt-get update && apt-get install dos2unix
 WORKDIR /app
 # Aqui eu defino o diretorio de trabalho da imagem
 
@@ -20,7 +20,7 @@ COPY mvnw pom.xml ./
 
 
 
-RUN chmod + x ./mvnw dependency:go-offline 
+RUN chmod +x ./mvnw dependency:go-offline 
 # Isso funciona exatamente da mesma maneira como se estivéssemos executando mvnw(ou mvn)
 # dependência localmente em nossa máquina, mas desta vez as dependências serão instaladas 
 # na imagem.
