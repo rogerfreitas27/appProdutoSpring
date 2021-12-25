@@ -18,7 +18,7 @@ COPY mvnw pom.xml ./
 
 
 
-RUN chmod +x ./mvnw install -DskipTests
+RUN chmod u=rwx ./mvnw install -DskipTests
 RUN mkdir -p target/dependency && (cd target/dependency; jar -xf ../*.jar)
 
 #RUN ./mvnw   dependency:go-offline 
