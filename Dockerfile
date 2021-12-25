@@ -18,9 +18,10 @@ COPY mvnw pom.xml ./
 
 
 
+RUN ./mvnw install -DskipTests
+RUN mkdir -p target/dependency && (cd target/dependency; jar -xf ../*.jar)
 
-
-RUN ./mvnw   dependency:go-offline 
+#RUN ./mvnw   dependency:go-offline 
 #RUN chmod +x ./mvnw
 # Isso funciona exatamente da mesma maneira como se estivéssemos executando mvnw(ou mvn)
 # dependência localmente em nossa máquina, mas desta vez as dependências serão instaladas 
@@ -56,6 +57,10 @@ CMD ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "/appproduto.jar
 
 
 #ENTRYPOINT ["java","-jar","appproduto.jar"]
+
+
+
+
 
 
      
