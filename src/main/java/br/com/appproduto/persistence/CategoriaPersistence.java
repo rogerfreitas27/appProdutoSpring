@@ -17,20 +17,21 @@ public class CategoriaPersistence {
 	}
 	
 	
-	public Categoria save(Categoria c) throws Exception{
+	public Categoria save(Categoria c) {		
 		return cr.save(c);
 	}
 	
-	public List<Categoria> findAll () throws Exception{
+		
+	public List<Categoria> findAll () {
 		return cr.findAll();
 	}
 	
 	
-	public void delete(Categoria c) throws Exception {
+	public void delete(Categoria c)  {
 		cr.delete(c);
 	}
 	
-	public Optional<Categoria> findById(Long id)  throws Exception{
+	public Optional<Categoria> findById(Long id) {
 		 return cr.findById(id);
 	}
 
@@ -39,12 +40,21 @@ public class CategoriaPersistence {
 	 * @return
 	 * @throws Exception
 	 */
-	private int contadorCategoria()  throws Exception{
+	private int contadorCategoria()  {
 		int  cont = cr.findAll().size();
 	return cont;
 	}
 	
-	public int RespcontadorCategoria() throws Exception{
+	public int RespcontadorCategoria(){
 		return   contadorCategoria(); 
 	}
+	
+	
+	
+	public Optional<Categoria> findByNome(Categoria c) {
+		return cr.findByNome(c);
+		
+	}
+	
+	
 }

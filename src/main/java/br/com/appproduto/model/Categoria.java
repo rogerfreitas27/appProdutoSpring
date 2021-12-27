@@ -14,6 +14,7 @@ import javax.validation.constraints.Size;
 
 
 
+
 @Entity
 @Table(name = "categoria")
 public class Categoria implements Serializable {
@@ -27,8 +28,8 @@ public class Categoria implements Serializable {
 	 @NotBlank(message = "Campo obrigatório")
 	   	@Size(min = 3, max = 60, message 
 	   = "O campo nome só pode ter entre 3 e 60 caracteres")
-	   @Column(unique = true)
-	private String nome;
+	   @Column(unique = true) 	 
+		private String nome;
 	
 	
 	

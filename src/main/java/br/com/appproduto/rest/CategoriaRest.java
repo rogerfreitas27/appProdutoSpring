@@ -40,12 +40,10 @@ public class CategoriaRest {
 	@PreAuthorize("hasAuthority('CATEGORIA_WRITE_PRIVILEGE')")
 	public ResponseEntity<String> save(@RequestBody   @Valid Categoria categoria ){
 		
-		try {
+		
 			cp.save(categoria);
 			return  ResponseEntity.status(HttpStatus.CREATED).body("Cadastro realizado com sucesso !");
-		} catch (Exception i) {
-			return  ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Falha ao realizar cadastro");
-		}
+		
 		
 	}
 	
@@ -56,18 +54,20 @@ public class CategoriaRest {
 	public ResponseEntity<String> findById(@RequestParam(value="id") Long id){
 		Categoria c = new Categoria();
 		Optional<Categoria> cat;
+		
+		
 		try {
 		cat = cp.findById(id);
 		if(cat.isEmpty()) {
-			return  ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não há categoria com este id");
+			return  ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não há registros");
 		}
 		c = cat.get();
 		String dados = sr.categoriaSerializar(c);
 			return  ResponseEntity.status(HttpStatus.OK).body(dados);
 		} catch (Exception e) {
 			e.printStackTrace();
-			return  ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Falha ao realizar a busca" + e.getMessage());
-		}
+			return  ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Falha ao buscar registros");
+		} 
 		
 	}
 	

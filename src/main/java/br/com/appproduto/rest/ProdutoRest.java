@@ -15,6 +15,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import br.com.appproduto.model.Produto;
 import br.com.appproduto.persistence.ProdutoPersistence;
 import br.com.appproduto.util.Serializar;
@@ -38,15 +42,24 @@ public class ProdutoRest {
 	
 	@PostMapping
 	@PreAuthorize("hasAuthority('PRODUTO_WRITE_PRIVILEGE')")
-	public ResponseEntity<String> save(@RequestBody Produto produto ){
+	public ResponseEntity<String> save(String produtoJson, MultipartFile foto ){
+	//public ResponseEntity<String> save(@RequestBody Produto produto ){
+		//String pessoaJson, MultipartFile foto
 		
+		ObjectMapper mapper = new ObjectMapper();
+		Produto produto = null;
 		try {
-			pp.save(produto);
+		//	 produto = mapper.readValue(produtoJson, Produto.class);
+			//pp.save(produto);
+			System.out.println("foto->" + foto.getOriginalFilename());
 			return  ResponseEntity.status(HttpStatus.CREATED).body("Cadastro realizado com sucesso !");
 		} catch (Exception e) {
 			e.printStackTrace();
 			return  ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Falha ao realizar cadastro" + e.getMessage());
 		}
+		
+		
+		
 		
 	}
 	

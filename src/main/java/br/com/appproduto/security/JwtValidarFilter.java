@@ -95,11 +95,18 @@ public class JwtValidarFilter extends OncePerRequestFilter {
 
     	  
     	 System.out.println("Token invalido");
-    	   
     	 
-    	  ((HttpServletResponse) response).setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-    	
+    	 response.setContentType("application/json");
+         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+       //  response.getOutputStream().println("{ \"error\": \"" + eje.getMessage() + "\" }");
+         response.getOutputStream().println("{ \"error\": \"" + "Token ou sessao invalido,realize o login, caso o problema persista contate o administrador" + "\" }");
 
+    	 
+    
+     	
+
+    	
+    	
     	
     	
     	
