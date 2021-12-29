@@ -1,18 +1,18 @@
 # appProdutoSpring
 Este projeto é para treinamento e mostar o nivel de conhecimento que venho adquirindo. Esta parte 
-do sistema foi desenvolvido usando as seguintes tecnologias:
+do sistema foi desenvolvida usando as seguintes tecnologias:
 
 Java,Spring boot, Jpa,Jwt,Spring Secutity,Docker
 
 # Java
-Projeto de desenvolvido  com base na linguagem de programação java, para este projeto eu ultilizo 
+Projeto  desenvolvido  com base na linguagem de programação java, para este projeto eu ultilizo 
 o java 11, com conceitos implementados  apartir do java 8 como optional e var.
 
 #Spring Boot
 Framework  facilitador onde pude integrar neste projeto o Spring data Jpa e Spring Security
 
 #Spring Data Jpa
-Responsável pela camada de persistencia, com o Jpa o densenvolvedor ganha em produtividade, já muita coisa (Interface ) já está pronta cabendo ao desenvolvedor só usar, sem contar com a flexibilidade de dependendo da demanda poder usar sql nativo
+Responsável pela camada de persistencia, com o Jpa o densenvolvedor ganha em produtividade, já que muita coisa (Interface ) já está pronta cabendo ao desenvolvedor só usar, sem contar com a flexibilidade onde dependendo da demanda poder usar sql nativo
 
 #Jwt
 Esta biblioteca foi utilizada para criação de tokens, e sua confuguração, e validação

@@ -44,6 +44,9 @@ public class Categoria implements Serializable {
 		this.nome = nome.toUpperCase();
 	}
 
+	public Categoria(Long id) {
+		this.id = id;
+	}
 
 
 	@Override

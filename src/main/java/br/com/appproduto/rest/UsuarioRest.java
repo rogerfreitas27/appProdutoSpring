@@ -19,7 +19,7 @@ import br.com.appproduto.model.Usuario;
 import br.com.appproduto.persistence.UsuarioPersistence;
 import br.com.appproduto.repository.UserRepository;
 import br.com.appproduto.security.AuthProviderService;
-import br.com.appproduto.servico.UsuarioServico;
+import br.com.appproduto.servico.UsuarioService;
 import br.com.appproduto.util.Serializar;
 
 @RestController
@@ -31,12 +31,12 @@ public class UsuarioRest {
 	private final Serializar sr;
 	private final AuthProviderService auth ;	
 	private final UserRepository userRepository;	
-	private final UsuarioServico ususerv;
+	private final UsuarioService ususerv;
 	
 	
 	  
 	public UsuarioRest(UsuarioPersistence up, Serializar sr, AuthProviderService auth,
-			UserRepository userRepository,UsuarioServico ususerv) {
+			UserRepository userRepository,UsuarioService ususerv) {
 		this.up = up;
 		this.sr = sr;
 		this.auth=auth;

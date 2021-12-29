@@ -37,6 +37,13 @@ public class Marca implements Serializable {
 		this.id = id;
 		this.nome = nome.toUpperCase();
 	}
+	
+	
+	
+	public Marca(Long id) {
+		this.id = id;
+		
+	}
 	@Override
 	public String toString() {
 		return "MarcaModel [id=" + id + ", nome=" + nome + "]";

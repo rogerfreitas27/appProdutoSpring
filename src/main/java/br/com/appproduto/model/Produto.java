@@ -3,7 +3,6 @@ package br.com.appproduto.model;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,9 +12,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+
+
 
 
 @Entity
@@ -40,26 +42,27 @@ public class Produto implements Serializable {
 	   = "O campo descrição tem no minimo 3 e no maximo 60 caracteres")
 	private String descricao;
 	
-	@NotBlank(message = "Campo obrigatório")
-	@DecimalMin(value = "0.99", inclusive = false)
-	@Column( precision = 8, scale = 2)
+	
+	@DecimalMin(value = "0.99", inclusive = false , message="Valor minimo 0.99")
+	@Digits(integer=5, fraction=2) 
 	private BigDecimal valor;
 	
-	@NotBlank(message = "Campo obrigatório")
+	
     @Min(value = 1, message = "É necessario pelo menos 1 produto para cadastro")
 	private Long quantidade;
 	
 	@NotBlank(message = "Campo obrigatório")
 	private String url_imagem;
 	
+	
 	@ManyToOne 
 	@JoinColumn(name="idCategoria")
-	@NotBlank(message = "Campo obrigatório")
 	private Categoria idCategoria;
 	
+	
+
 	@ManyToOne
 	@JoinColumn(name="idMarca")
-	@NotBlank(message = "Campo obrigatório")
 	private Marca idMarca;
 	
 	public Produto() {
