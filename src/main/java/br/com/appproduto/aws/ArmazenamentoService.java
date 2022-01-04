@@ -43,8 +43,7 @@ public class ArmazenamentoService {
 	           
 	        s3Client.putObject(new PutObjectRequest(bucketName,fileName,fileObj ).withCannedAcl(CannedAccessControlList.PublicRead));
 	       URL endereco = s3Client.getUrl(bucketName, fileName);
-	        String url = endereco.toString();
-	      
+	        String url = endereco.toString();    
 	       
 			
 			fileObj.delete();  	        
