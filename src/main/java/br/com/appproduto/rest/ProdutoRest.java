@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import br.com.appproduto.model.Produto;
 import br.com.appproduto.persistence.ProdutoPersistence;
-import br.com.appproduto.servico.ProdutoService;
+import br.com.appproduto.service.ProdutoService;
 import br.com.appproduto.util.Serializar;
 
 

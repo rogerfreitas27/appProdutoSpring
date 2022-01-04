@@ -19,7 +19,7 @@ import br.com.appproduto.model.Usuario;
 import br.com.appproduto.persistence.UsuarioPersistence;
 import br.com.appproduto.repository.UserRepository;
 import br.com.appproduto.security.AuthProviderService;
-import br.com.appproduto.servico.UsuarioService;
+import br.com.appproduto.service.UsuarioService;
 import br.com.appproduto.util.Serializar;
 
 @RestController
