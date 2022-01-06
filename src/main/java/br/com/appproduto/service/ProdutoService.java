@@ -24,19 +24,21 @@ public class ProdutoService {
 		this.as=as;
 	}
 	
-	public void save(String produtoJson, MultipartFile foto) throws Exception{
+	public void save(Produto produto, MultipartFile foto) {
      
 		
-		ObjectMapper mapper = new ObjectMapper();		
-		Produto produto = null;		
-		produto = mapper.readValue(produtoJson, Produto.class);	
+			
 		
-		
-		String url = as.uploadFile(foto);	
-		produto.setUrl_imagem(url);
-		
+		try {
+					
+		String url = as.uploadFile(foto,produto.getNome());
+		produto.setUrl_imagem(url);		
 		System.out.println(produto.getUrl_imagem());
 		pp.save(produto);
+		}catch(Exception e) {
+			 as.deleteFile(produto.getNome());
+			  e.getMessage();
+		}
 		
 		
 	}

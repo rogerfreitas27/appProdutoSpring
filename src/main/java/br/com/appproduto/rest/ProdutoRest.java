@@ -18,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 import br.com.appproduto.model.Produto;
 import br.com.appproduto.persistence.ProdutoPersistence;
 import br.com.appproduto.service.ProdutoService;
+import br.com.appproduto.util.Desserializar;
 import br.com.appproduto.util.Serializar;
 
 
@@ -30,12 +31,15 @@ public class ProdutoRest {
 	private final ProdutoPersistence pp;
 	private final Serializar sr;
 	private final ProdutoService ps;
+	private final Desserializar ds;
 	
-	public ProdutoRest(ProdutoPersistence pp, Serializar sr,ProdutoService ps) {
+	public ProdutoRest(ProdutoPersistence pp, Serializar sr,
+			          ProdutoService ps,Desserializar ds) {
 		
 		this.pp = pp;
 		this.sr = sr;
 		this.ps = ps;
+		this.ds = ds;
 	}
 	
 	
@@ -45,8 +49,9 @@ public class ProdutoRest {
 	public ResponseEntity<String> save(String produtoJson, MultipartFile foto ){
 			
 		try {		
-			
-		ps.save(produtoJson,  foto);
+			Produto produto = new Produto();
+			produto = ds.desserializaProduto(produtoJson);
+		ps.save(produto,  foto);
 			
 			return  ResponseEntity.status(HttpStatus.CREATED).body("Cadastro realizado com sucesso !");
 		} catch (Exception e) {
